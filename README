@@ -57,4 +57,11 @@ var Contact = mongoose.model('contacts',{ // les methodes find() et findById() s
     nom: String
 });// http://mongoosejs.com/docs/models.html
 
+/****************/
+    TESTS
+/****************/
+Mocha+Chai/Jasmine
 
+"mocha test/model/contact.test.js"
+or "mocha --recursive"
+or use "mocha" only defining mocha.opts
