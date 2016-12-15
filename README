@@ -65,3 +65,5 @@ Mocha+Chai/Jasmine
 "mocha test/model/contact.test.js"
 or "mocha --recursive"
 or use "mocha" only defining mocha.opts
+
+webstorm library settings <=> npm install typings for VS
