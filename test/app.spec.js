@@ -34,16 +34,18 @@ describe('Tests fonctionnels', function(){
 
     // Tester la page POST /contacts/add (chai-http)
     describe('Add un contact', function(){
-        it('should return no errors', function(){
+        it('should return no errors', function(done){
             chai.request(app)
                 .post('/contacts/add')
                 .set('Content-type', 'application/x-www-form-urlencoded')
                 .send({ prenom: '123', nom: '123'})
-                /*.field('prenom', 'TestP')
-                .field('nom', 'TestN')*/
                 .end((err, res) =>{
+                    if(err){
+                        done(err);
+                    }
                     expect(err).to.be.null;
-                    expect(res).to.have.status(200);
+                    expect(res).to.redirect;
+                    done();
                 });
         });
     });
