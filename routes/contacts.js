@@ -14,20 +14,6 @@ router.get('/', (req, res, next) => {
     });
 });
 
-router.get('/:id', (req, res, next) => {
-    Contact.findById(req.params.id, (err, contact) => {
-        if (err) {
-            return next(err);
-        }
-
-        if (!contact) {
-            req.message = 'Le contact n\'existe pas';
-            return next();
-        }
-
-        res.render('contacts/show', {contact});
-    });
-});
 
 router.get('/add', (req, res, next) => {
     res.render('contacts/add');
@@ -43,5 +29,19 @@ router.post('/add', bodyParser.urlencoded({ extended: false }), (req, res, next)
 
 });
 
+router.get('/:id', (req, res, next) => {
+    Contact.findById(req.params.id, (err, contact) => {
+        if (err) {
+            return next(err);
+        }
+
+        if (!contact) {
+            req.message = 'Le contact n\'existe pas';
+            return next();
+        }
+
+        res.render('contacts/show', {contact});
+    });
+});
 
 module.exports = router;
