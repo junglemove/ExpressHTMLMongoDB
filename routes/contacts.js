@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 let router = new Router();
 
 router.get('/', (req, res, next) => {
-    Contact.find((err, contacts) => {
+    Contact.find(/*{},'',*/(err, contacts) => { /*{search criteria},'colomns to be retrieved',*/
         if (err) {
             return next(err);
         }
@@ -23,8 +23,12 @@ router.get('/add', (req, res, next) => {
 router.post('/add', bodyParser.urlencoded({ extended: false }), (req, res, next) => {
 
     var contact = new Contact(req.body);
+    console.log(contact);
     contact.save((err, contact) => {
-        res.redirect('/contacts/' + contact.id);
+        if (err) {
+            return next(err);
+        }
+        res.redirect('/contacts/' + contact._id);
     });
 
 });
@@ -37,7 +41,7 @@ router.get('/:id', (req, res, next) => {
 
         if (!contact) {
             req.message = 'Le contact n\'existe pas';
-            return next();
+            return next(); // test with return next(err); and /add after
         }
 
         res.render('contacts/show', {contact});
