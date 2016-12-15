@@ -11,7 +11,7 @@ describe('class Contact array', function () {
                 assert.equal(contacts.length, 2);
             });
         });
-        it('should not contain errors',function (done) {
+        it('should not contain errors',function (done) { // Mocha done spécific function (make the assert on the callback in auto)
             Contact.find(done); // verify que la callback ne retourn pas d'erreurs
         });
     });
