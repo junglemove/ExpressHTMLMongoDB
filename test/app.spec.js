@@ -21,7 +21,7 @@ describe('Tests fonctionnels', function(){
        });
    });
    // Tester la page /contacts/123
-    describe('Récupérer le contact id:123', function(){
+    describe('Retrieve id:123 contact', function(){
         it('should be available', function(){
             chai.request(app)
                 .get('/contacts/123')
@@ -33,7 +33,7 @@ describe('Tests fonctionnels', function(){
     });
 
     // Tester la page POST /contacts/add (chai-http)
-    describe('Ajouter un contact', function(){
+    describe('Add un contact', function(){
         it('should return no errors', function(){
             chai.request(app)
                 .post('/contacts/add')
