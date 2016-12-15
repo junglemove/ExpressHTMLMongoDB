@@ -1,5 +1,5 @@
 const Router = require('express').Router;
-const Contact = require('../model/contact');
+const Contact = require('../model/contact-mongo');
 const bodyParser = require('body-parser');
 
 let router = new Router();

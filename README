@@ -10,7 +10,9 @@ upload:
 https://raw.githubusercontent.com/mongodb/docs-assets/primer-dataset/primer-dataset.json
 
 initializ db with cmd:
-mongoimport --db test --collection restaurants --drop --file ~/downloads/primer-dataset.json
+cmd>mongoimport --db test --collection restaurants --drop --file ~/downloads/primer-dataset.json
+cmd>mongod to start the serveur
+
 
 connect to MongoDb from cmd:
 cmd>mongo
@@ -41,10 +43,18 @@ db
 db.createCollection('contacts')
 db.contacts.insert({prenom: 'Steve', nom: 'Ballmer'})
 db.contacts.insert({prenom: 'Larry', nom: 'Page'})
-
+db.contacts.find()
 exit
 
 /****/
+mongoosejs.com/docs/subdocs.html
+db validators...
 
+var mongoose = require('mongoose');
+
+var Contact = mongoose.model('contacts',{ // les methodes find() et findById() sont déjà implémentés par le model mongo
+   prenom: String,
+    nom: String
+});// http://mongoosejs.com/docs/models.html
 
 
