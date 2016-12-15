@@ -8,7 +8,9 @@
 <h1>Liste des contacts</h1>
 <ul>
   <% contacts.forEach((contact) => { %>
-  <li><%= contact.prenom %> <%= contact.nom %></li>
+  <a href="contacts/<%= contact._id %>">
+    <li><%= contact.prenom %> <%= contact.nom %></li>
+  </a>
   <% }); %>
 </ul>
 </body>
