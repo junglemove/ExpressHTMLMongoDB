@@ -20,4 +20,31 @@ describe('Tests fonctionnels', function(){
                })
        });
    });
+   // Tester la page /contacts/123
+    describe('Récupérer le contact id:123', function(){
+        it('should be available', function(){
+            chai.request(app)
+                .get('/contacts/123')
+                .end((err, res) =>{
+                    expect(err).to.be.null;
+                    expect(res).to.have.status(200);
+                })
+        });
+    });
+
+    // Tester la page POST /contacts/add (chai-http)
+    describe('Ajouter un contact', function(){
+        it('should return no errors', function(){
+            chai.request(app)
+                .post('/contacts/add')
+                .set('Content-type', 'application/x-www-form-urlencoded')
+                .send({ prenom: '123', nom: '123'})
+                /*.field('prenom', 'TestP')
+                .field('nom', 'TestN')*/
+                .end((err, res) =>{
+                    expect(err).to.be.null;
+                    expect(res).to.have.status(200);
+                });
+        });
+    });
 });

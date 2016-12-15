@@ -15,4 +15,18 @@ describe('class Contact array', function () {
             Contact.find(done); // verify que la callback ne retourn pas d'erreurs
         });
     });
+
+
+    // Unitaire
+    // Tester la méthode findById
+    describe('findById',function () {
+        it('should return 123 contact',function () {
+            Contact.findById(123,(err, contacts) => {
+                assert.equal(contacts.length, 1);
+                assert.equal(contacts.id, 123);
+            });
+        });
+    });
+
+    // Tester la méthode save
 });

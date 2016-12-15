@@ -1,5 +1,7 @@
 const Router = require('express').Router;
-const Contact = require('../model/contact-mongo');
+//const Contact = require('../model/contact-mongo');
+const Contact = require('../model/contact');
+
 const bodyParser = require('body-parser');
 
 let router = new Router();
@@ -28,7 +30,8 @@ router.post('/add', bodyParser.urlencoded({ extended: false }), (req, res, next)
         if (err) {
             return next(err);
         }
-        res.redirect('/contacts/' + contact._id);
+        res.send();
+        //res.redirect('/contacts/' + contact._id);
     });
 
 });
